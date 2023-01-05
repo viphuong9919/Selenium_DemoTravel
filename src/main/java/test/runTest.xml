@@ -9,6 +9,7 @@
             <class name="test.LoginTest">
                 <methods>
                     <include name="verifyLogin" />
+                    <include name="verifyRemember" />
                 </methods>
             </class>
         </classes>
