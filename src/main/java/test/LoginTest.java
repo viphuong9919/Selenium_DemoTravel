@@ -15,27 +15,27 @@ public class LoginTest extends BaseSetup {
     public void setUp() {
         driver = getDriver();
     }
-    @Test(priority = 0)
+    @Test()
     public void verifyLogin() throws Exception {
-//        System.out.println(driver);
         homePage = new HomePage(driver);
         loginPage = new LoginPage(driver);
 
         loginPage.loginSuccessful("user@phptravels.com", "demouser");
-        homePage.verifyLoginSuccessful("Hi, Krishna Welcome Back");
+        homePage.verifyLoginSuccessful();
+        driver.close();
     }
-    @Test(priority = 1)
+    @Test()
     public void verifyRemember() throws Exception {
-        driver.get("https://www.google.com/");
-        // Opens a new window and switches to new window
-        driver.switchTo().newWindow(WindowType.WINDOW);
-        // Opens Travel homepage in the newly opened tab
-        driver.navigate().to("https://www.phptravels.net/login");
+        WebDriver driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
+        driver.get("https://www.phptravels.net/login");
 
         loginPage = new LoginPage(driver);
 
         loginPage.verifyPlaceholder();
         loginPage.verifyRememberMe();
+        driver.close();
     }
 }
 
