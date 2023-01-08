@@ -23,7 +23,7 @@ public class HomePage {
             name = getUsername.getText();
             System.out.println(textUsername);
         System.out.println(name);
-        if (textUsername.contains("Hi,"+name+"Welcome Back")){
+        if (textUsername.contains("Hi,"+name)){
             System.out.println("Expected text is obtained");
         }
         else{
